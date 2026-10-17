@@ -1,75 +1,86 @@
 # ShareAPlate — Food Donation Management System
 
-**Project Lead:** Archit Mahajan
-
-A polished Java desktop application prototype with a dashboard layout for managing community food donation listings. It uses Java Swing for the user interface, JDBC for database access, and MySQL for persistent storage.
+A Java desktop application designed to manage food donation listings, helping organize available food, reservations, and collection status.
 
 ## Features
-- Create, view, search, update, and delete donation listings (CRUD).
-- Track status: Available, Reserved, Collected.
-- Filter by status and food category.
-- Dashboard counters for listings, available donations, collected donations, and total portions.
-- Sidebar navigation and a refined green community-focused visual design.
-- Prepared SQL statements, basic validation, and error messages.
-- MySQL persistence shared across app sessions (unlike the earlier browser-only demo).
 
-## Technology
-- Java 17+
-- Java Swing
-- JDBC
-- MySQL 8+
-- Maven
+- Add and manage food donation listings
+- View donations in a structured dashboard
+- Search and filter donations
+- Track donation status
+- Store donation records using MySQL
+- Desktop interface built with Java Swing
+
+## Tech Stack
+
+- **Language:** Java
+- **User Interface:** Java Swing
+- **Database Connectivity:** JDBC
+- **Database:** MySQL
+- **Build Tool:** Maven
+
+## Project Structure
+
+```text
+ShareAPlate/
+├── database/
+│   └── schema.sql
+├── src/
+│   └── main/
+│       ├── java/
+│       └── resources/
+│           └── db.properties.example
+├── pom.xml
+├── README.md
+└── .gitignore
+```
+
+## Prerequisites
+
+- Java Development Kit (JDK) 17 or compatible
+- Apache Maven
+- MySQL Server
 
 ## Setup
 
-### 1. Install prerequisites
-Install JDK 17 or newer, Maven, and MySQL Server. Start MySQL.
+1. Clone the repository:
 
-### 2. Create the database
-Open MySQL Workbench or a MySQL terminal and run the script in `database/schema.sql`.
+   ```bash
+   git clone https://github.com/archit-mahajan-dev/ShareAPlate.git
+   cd ShareAPlate
+   ```
 
-### 3. Configure database credentials
-Copy `src/main/resources/db.properties.example` to `src/main/resources/db.properties`, then edit the values:
-- `db.url`
-- `db.username`
-- `db.password`
+2. Create the database using the SQL script in `database/schema.sql`.
 
-`db.properties` is ignored by Git. Never commit real database passwords.
+3. Copy `src/main/resources/db.properties.example` to `src/main/resources/db.properties`.
 
-### 4. Run the app
-From the project directory:
+4. Enter your local MySQL database name, username, and password in `db.properties`. Never commit real credentials.
 
-```bash
-mvn clean compile exec:java
-```
+5. Build the project:
 
-In IntelliJ IDEA or Eclipse, import the folder as a Maven project, make sure JDK 17 is selected, and run `in.shareaplate.Main`.
+   ```bash
+   mvn clean package
+   ```
 
-## Project structure
+6. Run the application using your IDE or the configured Maven Java entry point.
 
-```text
-src/main/java/in/shareaplate/
-  Main.java
-  db/Database.java
-  model/Donation.java
-  dao/DonationDAO.java
-  ui/MainFrame.java
-src/main/resources/
-  db.properties.example
-database/schema.sql
-```
+## Screenshots
 
-## Demo workflow
-1. Add a donation using the form.
-2. Select a row to edit or change its status.
-3. Search by food name, donor, or location.
-4. Use the status/category filters.
-5. Delete a test listing when needed.
+Screenshots of the running application will be added here.
 
-## Important limitations and responsible use
-This is a student project prototype, not a production food redistribution service. It does not include login/roles, online hosting, live notifications, verified food safety, or pickup scheduling. The database runs on the configured MySQL server; a locally installed database is not automatically accessible to other people. Use fictional sample contact details in demonstrations. Do not enter private phone numbers or home addresses into a public demo.
+## Project Information
 
-For real community use, add authentication and authorization, input and audit logging, privacy protections, safe food-handling procedures, allergen and expiry checks, and a pilot with a community partner.
+- **Project:** ShareAPlate
+- **Project Lead:** Archit Mahajan
+- **Purpose:** Learning Java application development, database integration, and desktop UI design.
 
-## Community purpose
-ShareAPlate explores how software can help community groups coordinate surplus-food listings and reduce avoidable food waste. Claim community impact only after genuine testing with intended users and documenting actual feedback.
+## Future Improvements
+
+- User authentication and role-based access
+- Donation expiry notifications
+- Reports and analytics
+- Online deployment and a web-based interface
+
+## License
+
+This project is available for educational and learning purposes.
